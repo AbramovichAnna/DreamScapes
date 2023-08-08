@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Other Users' Mixes</h1>
+{% for mix in mixes %}
+    <div>
+        <h2>{{ mix.title }} by {{ mix.user.username }}</h2>
+        {% for sound in mix.sounds.all %}
+            <p>{{ sound.title }}</p>
+        {% endfor %}
+    </div>
+{% endfor %}
+{% endblock %}

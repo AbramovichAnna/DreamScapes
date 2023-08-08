@@ -1,0 +1,103 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #eef5f9;
+    /* Light blue */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Styles */
+nav {
+    background-color: #007BFF;
+    /* Primary blue */
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    /* Separates the left and right side of the navbar */
+    align-items: center;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    /* Additional padding for better appearance and interaction */
+    border-radius: 5px;
+    /* Slightly rounded corners for links */
+}
+
+nav a:hover {
+    background-color: #0056b3;
+    /* Darken blue on hover */
+}
+
+/* Profile Info */
+.profile-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* makes the image a circle */
+    margin-right: 10px;
+}
+
+/* Dropdown Profile Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #007BFF;
+    border: 1px solid #0056b3;
+    /* Dark blue border */
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.profile-info:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #0056b3;
+}
+
+.logo img {
+    height: 75px;  /* Keeps the aspect ratio */
+    /* max-height: 75px;  Adjust to your desired height or remove */
+    padding: 0;  /* Optional: adds some padding on top and bottom */
+}

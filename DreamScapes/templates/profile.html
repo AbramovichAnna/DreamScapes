@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link href="{% static 'DreamScapes/css/profile.css' %}" rel="stylesheet" type="text/css">
+<div class="profile-container">
+
+    <!-- Profile Image -->
+    <div class="profile-image">
+        {% if user.profile_picture %}
+        <img src="{{ user.profile_picture.url }}" alt="{{ user.username }}" class="profile-pic">
+        {% else %}
+        <img src="{% static 'DreamScapes/images/user_default.png' %}" alt="Default User Image" class="profile-pic">
+        {%endif %}
+    </div>
+
+    <!-- Profile Details -->
+    <div class="profile-details">
+        <h2>{{ user.username }}</h2>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Date of Birth:</strong> {{ user.date_of_birth }}</p>
+        <p><strong>Your Mixes:</strong> {{ user.mixes }}</p>
+    </div>
+
+</div>
+
+{% endblock %}

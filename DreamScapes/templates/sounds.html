@@ -12,6 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="{% static 'DreamScapes/js/sounds.js' %}"></script>
 <!-- Tab sonds filter -->
+
 <ul class="nav nav-tabs" id="categoryTabs" role="tablist">
     <li class="nav-item" role="presentation">
         <a class="nav-link active" id="all_tab" data-toggle="tab" href="#all" role="tab" aria-controls="all">All</a>
@@ -32,23 +33,25 @@
 
     <!-- All Sounds Tab -->
     <div class="tab-pane active" id="all" role="tabpanel">
-        <!-- <div class="container-scrollable"> -->
-            <div class="row">
-                {% for sound in all_sounds %}
-                <div class="card" data-audio-src="{{ sound.file.url }}">
-                    <div class="card-header">{{sound.title}}</div>
-                    <div class="card-main">
-                        {%if sound.icon %}
-                        <img class="sound-icons" src="{{ sound.icon.url }}" alt="{{ sound.title }}">
-                        {% else %}
-                        <p>no icon</p>
-                        {% endif %}
-                    </div>
+        <div class="row">
+            {% for sound in all_sounds %}
+            <div class="card" data-audio-src="{{ sound.file.url }}">
+                <div class="heart-button" data-sound-id="{{ sound.id }}">
+                    ♡
                 </div>
-                {% endfor %}
+                <div class="card-header">{{sound.title}}</div>
+                <div class="card-main">
+                    {%if sound.icon %}
+                    <img class="sound-icons" src="{{ sound.icon.url }}" alt="{{ sound.title }}">
+                    {% else %}
+                    <p>no icon</p>
+                    {% endif %}
+                </div>
             </div>
-        <!-- </div> -->
+            {% endfor %}
+        </div>
     </div>
+
 
     <!-- New Sounds Tab -->
     <div class="tab-pane" id="new" role="tabpanel">

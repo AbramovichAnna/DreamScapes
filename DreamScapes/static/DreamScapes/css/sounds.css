@@ -1,7 +1,17 @@
+
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: rgba(4, 67, 139, 0.751);
+    color: aliceblue;
+    background-image: url('/static/DreamScapes/images/sounds_bg.jpg');
+    background-size: cover;   /* Ensures the image covers the entire element */
+    background-repeat: no-repeat;  /* Prevents image repetition */
+    background-position: center center;  /* Centers the image */
+    background-attachment: fixed; /* This ensures the image stays fixed during scrolling */
+    height: 100vh;
+    margin: 0;
+    overflow: auto;  /* Allows content to scroll if it exceeds screen height */
 }
+
 /* .container-scrollable {
     max-height: 700px;  
     overflow-x: auto;
@@ -9,22 +19,28 @@ body {
 } */
 .row {
     display: inline-flex;
-    grid-template-columns: repeat(7, 1fr); /* 7 cards in a row */
-    gap: 16px; 
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    /* 7 cards in a row */
+    gap: 16px;
 }
+
 .card {
     height: 100px;
     width: 90px;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
     background-color: transparent;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
     transition: transform 0.3s;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: flex-end; /* Push children to the bottom */
+    flex-direction: column;
+    /* Stack children vertically */
+    justify-content: flex-end;
+    /* Push children to the bottom */
     border: none;
 }
+
 .card-header {
     text-align: center;
     font-size: 12px;
@@ -33,61 +49,94 @@ body {
     padding: 5px 5px;
     justify-content: center;
 }
+
 .card-main {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    right: 0; /* this makes the content span the full size of the card */
+    right: 0;
+    /* this makes the content span the full size of the card */
     display: flex;
     justify-content: center;
     align-items: top;
     padding-top: 5px;
     background-color: transparent;
 }
+
 .sound-icons {
     /* max-width: 50%; scale down image if it's too large */
     max-height: 50%;
-    margin: 0 auto; /* center the image */
+    margin: 0 auto;
+    /* center the image */
 }
+
 .main-description {
     font-size: 12px;
     text-align: center;
 }
+
 .card:hover {
     transform: scale(1.05);
     /* background-color: gray; */
 }
+
 .card :active {
-    transform: scale(1.05); /* optional hover effect to scale the card */
+    transform: scale(1.05);
+    /* optional hover effect to scale the card */
     /* background-color: gray; */
 }
 
 .card::before {
     content: "";
     display: block;
-    padding-top: 50%; /* 1:1 aspect ratio to make the card square */
+    padding-top: 50%;
+    /* 1:1 aspect ratio to make the card square */
 }
+
 /* Tab Container */
 .nav-tabs {
     background-color: transparent;
     border-bottom: none;
 }
+
 /* Individual Tabs */
 .nav-tabs .nav-link {
+    color: aliceblue;
     background-color: transparent;
     border: none;
 }
+
 .nav-tabs .nav-link.active {
     background-color: transparent;
     border-color: transparent;
 }
+
 .tab-content {
     background-color: transparent;
 }
+
 .nav.nav-tabs .nav-link {
     background-color: transparent;
 }
+
 .active-sound {
-    background-color: #1771d2;  /* You can set this to any color you like */
+    background-color: #1771d2;
+    /* You can set this to any color you like */
+}
+
+.heart-button {
+    z-index: 1;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    cursor: pointer;
+    font-size: 24px;
+    /* Adjust as needed */
+}
+
+.heart-button.active {
+    color: red;
+    content: "❤️";
+    /* This is a filled heart Unicode character */
 }

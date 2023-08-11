@@ -3,8 +3,9 @@
 {% block content %}
 {% load static %}
 <link href="{% static 'DreamScapes/css/profile.css' %}" rel="stylesheet" type="text/css">
-<div class="profile-container">
 
+{% if user.is_authenticated %}
+<div class="profile-container">
     <!-- Profile Image -->
     <div class="profile-image">
         {% if user.profile_picture %}
@@ -19,9 +20,19 @@
         <h2>{{ user.username }}</h2>
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Date of Birth:</strong> {{ user.date_of_birth }}</p>
-        <p><strong>Your Mixes:</strong> {{ user.mixes }}</p>
+        {%if user.mixes%}
+        <p><strong>Your Mixes:</strong>
+            {%for mix in user.mix%} 
+            {{ user.mixes }}</p>
+            {%endfor%}
+        {%else%}
+        <p><strong>Looks like You have no mixes yet!</strong></p>
+        {%endif%}
     </div>
 
 </div>
+{% else %}
+
+{% endif %}
 
 {% endblock %}

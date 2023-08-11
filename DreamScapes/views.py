@@ -10,8 +10,10 @@ def index(request):
     return render(request, 'index.html')
 
 def sounds(request):
+    all_sounds = Sound.objects.all()
+    latest_sounds = Sound.objects.all().order_by('-created_at')[:20]  # show last added 20 sounds
     categories = Category.objects.all()
-    return render(request, 'sounds.html', {'categories': categories})
+    return render(request, 'sounds.html', {'all_sounds': all_sounds, 'latest_sounds': latest_sounds, 'categories': categories})
 
 def user_profile(request):
     mixes = UserMix.objects.filter(user=request.user)
@@ -31,6 +33,7 @@ def user_register(request):
             password = request.POST.get('password')
             profile_picture = request.FILES.get('profile_picture')
             date_of_birth = request.POST.get('date_of_birth')
+            print("date_of_birth = ", date_of_birth)
             print(f"username : {username} \n passowrd : {password}")    
             user = DreamUser.objects.create_user(username=username, password=password, date_of_birth=date_of_birth, profile_picture=profile_picture)
             user.save()
@@ -66,3 +69,9 @@ def user_logout(request):
     print("******************* User logged out *******************")
     logout(request)
     return redirect('index')
+
+def your_view(request):
+    all_sounds = Sound.objects.all()
+    latest_sounds = Sound.objects.all().order_by('-created_at')[:28]  # Assuming you have a 'date_added' field on your Sound model
+    categories = Category.objects.all()
+    return render(request, 'sounds.html', {'all_sounds': all_sounds, 'latest_sounds': latest_sounds, 'categories': categories})

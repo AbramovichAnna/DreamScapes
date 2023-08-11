@@ -1,0 +1,121 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+<link href="{% static 'DreamScapes/css/sounds.css' %}" rel="stylesheet" type="text/css">
+
+<div class="card">
+    <div class="card-header">Night</div>
+    <div class="card-main">
+        <i class="material-icons">hot_tub</i>
+        <div class="main-description">Hot Tub</div>
+    </div>
+</div>
+<style>
+    body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.card {
+    width: 150px;
+    /* Set width of cards */
+    display: flex;
+    /* Children use Flexbox */
+    flex-direction: column;
+    /* Rotate Axis */
+    border: 1px solid #EF9A9A;
+    /* Set up Border */
+    border-radius: 4px;
+    /* Slightly Curve edges */
+    overflow: hidden;
+    /* Fixes the corners */
+    margin: 5px;
+    /* Add space between cards */
+}
+
+.card-header {
+    color: #D32F2F;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    border-bottom: 1px solid #EF9A9A;
+    background-color: #FFEBEE;
+    padding: 5px 10px;
+}
+
+.card-main {
+    display: flex;
+    /* Children use Flexbox */
+    flex-direction: column;
+    /* Rotate Axis to Vertical */
+    justify-content: center;
+    /* Group Children in Center */
+    align-items: center;
+    /* Group Children in Center (on cross axis) */
+    padding: 15px 0;
+    /* Add padding to the top/bottom */
+}
+
+.material-icons {
+    font-size: 36px;
+    color: #D32F2F;
+    margin-bottom: 5px;
+}
+
+.main-description {
+    color: #D32F2F;
+    font-size: 12px;
+    text-align: center;
+}
+</style>
+
+
+
+
+
+
+
+<!-- All Sounds Tab -->
+<div class="tab_all" id="all" role="tabpanel" aria-labelledby="all-tab">
+    <div class="row">
+        {% for sound in sounds %}
+        <div class="custom-col">
+            <div class="sound-card">
+                <div class="card">
+                    <div class="card-header">{{ sound.title }}</div>
+                    <div class="card-main">
+                        {% if sound.icon %}
+                        <img class="sound-icons" src="{{ sound.icon.url }}" alt="{{ sound.title }} icon">
+                        {% else %}
+                        <img class="sound-icons" src="{% static 'path_to_default_icon.jpg' %}" alt="Default sound icon">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+        <!-- New Sounds Tab -->
+        <div class="tab_new" id="new" role="tabpanel" aria-labelledby="new-tab">
+            <div class="row">
+                {% for sound in sounds|slice:"-8:" %}
+                <div class="column">
+                    <div class="sound-card">
+                        <div class="sound-image">
+                            {% if sound.icon %}
+                            <img src="{{ sound.icon.url }}" alt="{{ sound.title }} sound">
+                            {% else %}
+                            <img src="{% static 'path_to_default_icon.jpg' %}" alt="Default sound icon">
+                            {% endif %}
+                        </div>
+                        <div class="sound-info">
+                            <h6>{{ sound.title }}</h6>
+                            <!-- Sound control can be added here, if needed -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>

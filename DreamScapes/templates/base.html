@@ -33,7 +33,7 @@
 
 <body>
     <nav>
-        <!-- Left Side: Logo and Links -->
+        <!-- Left Side: Logo and Links to pages -->
         <div class="nav-left">
             <a class="logo" href="{% url 'index' %}">
                 <img src="{% static 'DreamScapes/images/logo.png' %}" alt="DreamScapes Logo" > <!-- Adjust width as needed -->
@@ -43,7 +43,7 @@
             <a href="{% url 'users_mixes' %}">Other Users' Mixes</a>
         </div>
 
-        <!-- Right Side: User info or Signin/Login -->
+        <!-- Right Side: Signin/Login -->
         <div class="nav-right">
             {% if user.is_authenticated %}
             <div class="profile-info">
@@ -56,7 +56,6 @@
                 <div class="dropdown-menu">
                     <a href="{% url 'profile' %}">My Profile</a>
                     <a href="{% url 'user_logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-                    <!-- Add more links as needed -->
                 </div>
             </div>
             {% else %}
@@ -125,7 +124,7 @@
                         </div>
                         <div class="form-group">
                             <label for="signupDOB">Date of Birth</label>
-                            <input type="date" name="date of birth" id="signupDOB" class="form-control" required>
+                            <input type="date" name="date_of_birth" id="signupDOB" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="signupPassword">Password</label>
@@ -163,9 +162,6 @@
                     {% endif %}
                     {% endfor %}
                 </div>
-                <!-- <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div> -->
             </div>
         </div>
     </div>

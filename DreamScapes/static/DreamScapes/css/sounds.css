@@ -1,52 +1,83 @@
-.sound-card {
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(8, 5, 49, 0.751);
+}
+/* .container-scrollable {
+    max-height: 700px;  
+    overflow-x: auto;
+    white-space: nowrap;
+} */
+.row {
+    display: inline-flex;
+    grid-template-columns: repeat(7, 1fr); /* 7 cards in a row */
+    gap: 16px; 
+}
+.card {
+    height: 100px;
+    width: 90px;
     position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid #e0e0e0;
-    padding: 20px;
+    overflow: hidden; 
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.sound-card:hover {
-    transform: scale(1.05);
-}
-
-.sound-image {
-    height: 50px;
-    overflow: hidden;
-}
-
-.sound-image img {
-    width: 100%;
-    height: auto;
-}
-
-.sound-info {
-    margin-top: 10px;
-}
-
-.sound-control {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 15px;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-end; /* Push children to the bottom */
 }
-
-.play-sound {
-    background-color: #007BFF;
-    color: white;
+.card-header {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: transparent;
+    padding: 5px 5px;
+    justify-content: center;
+}
+.card-main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; /* this makes the content span the full size of the card */
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding-top: 5px;
+    background-color: transparent;
+}
+.sound-icons {
+    /* max-width: 50%; scale down image if it's too large */
+    max-height: 50%;
+    margin: 0 auto; /* center the image */
+}
+.main-description {
+    font-size: 12px;
+    text-align: center;
+}
+.card:hover {
+    transform: scale(1.05); /* optional hover effect to scale the card */
+}
+.card::before {
+    content: "";
+    display: block;
+    padding-top: 50%; /* 1:1 aspect ratio to make the card square */
+}
+/* Tab Container */
+.nav-tabs {
+    background-color: transparent;
+    border-bottom: none;
+}
+/* Individual Tabs */
+.nav-tabs .nav-link {
+    background-color: transparent;
     border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
-
-.play-sound:hover {
-    background-color: #0056b3;
+.nav-tabs .nav-link.active {
+    background-color: transparent;
+    border-color: transparent;
 }
-
-.volume-slider {
-    width: 60%;
+.tab-content {
+    background-color: transparent;
+}
+.nav.nav-tabs .nav-link {
+    background-color: transparent;
 }

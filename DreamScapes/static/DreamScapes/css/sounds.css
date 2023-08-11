@@ -1,6 +1,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: rgba(8, 5, 49, 0.751);
+    background-color: rgba(4, 67, 139, 0.751);
 }
 /* .container-scrollable {
     max-height: 700px;  
@@ -23,6 +23,7 @@ body {
     display: flex;
     flex-direction: column; /* Stack children vertically */
     justify-content: flex-end; /* Push children to the bottom */
+    border: none;
 }
 .card-header {
     text-align: center;
@@ -54,8 +55,14 @@ body {
     text-align: center;
 }
 .card:hover {
-    transform: scale(1.05); /* optional hover effect to scale the card */
+    transform: scale(1.05);
+    /* background-color: gray; */
 }
+.card :active {
+    transform: scale(1.05); /* optional hover effect to scale the card */
+    /* background-color: gray; */
+}
+
 .card::before {
     content: "";
     display: block;
@@ -80,4 +87,7 @@ body {
 }
 .nav.nav-tabs .nav-link {
     background-color: transparent;
+}
+.active-sound {
+    background-color: #1771d2;  /* You can set this to any color you like */
 }

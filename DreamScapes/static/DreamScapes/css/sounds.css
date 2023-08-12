@@ -20,7 +20,7 @@ body {
 .row {
     display: inline-flex;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); */
     /* 7 cards in a row */
     gap: 16px;
 }

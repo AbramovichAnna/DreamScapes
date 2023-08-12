@@ -67,10 +67,10 @@ WSGI_APPLICATION = "DreamScapes_proj.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dreamscapes_db',
+        'NAME': 'dreamscape_db',
         'USER': 'anna',
         'PASSWORD': 'v7ESpLZAR6YJuZtmxCh5qE2TuBD9NTdO',
-        'HOST': 'dpg-cjbt0s45kgrc73foj5ig-a.oregon-postgres.render.com/dreamscape_db', 
+        'HOST': 'dpg-cjbt0s45kgrc73foj5ig-a.oregon-postgres.render.com', 
         'PORT': '5432', 
     }
 }

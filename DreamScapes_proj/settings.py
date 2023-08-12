@@ -69,7 +69,7 @@ DATABASES = {
         'NAME': 'dreamscapes_db',
         'USER': 'anna',
         'PASSWORD': 'v7ESpLZAR6YJuZtmxCh5qE2TuBD9NTdO',
-        'HOST': 'dpg-cjbt0s45kgrc73foj5ig-a.oregon-postgres.render.com', 
+        'HOST': 'dpg-cjbt0s45kgrc73foj5ig-a.oregon-postgres.render.com/dreamscape_db', 
         'PORT': '5432', 
     }
 }
